@@ -30,11 +30,13 @@ def print_soup_props(soup: BeautifulSoup) -> None:
     print('\n')
 
 def find():
+
     pass
 
 if __name__ == "__main__":
     clear_terminal()
-    soup = BeautifulSoup(open("./index.html"), "html.parser")
+    # The docs reccomend using lxml as parser (third party parser) because it is the fastest. 
+    soup = BeautifulSoup(open("./index.html"), "lxml") # The docs reccommend using lxml over html.parser for speed
     
     print_soup_props(soup)
 
