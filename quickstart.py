@@ -79,6 +79,25 @@ def find_method_arguments(soup :BeautifulSoup) -> None:
     print('(string = Elsie).parent ...', soup.find(string='Elsie').parent)
     print('"a", string = Elsie .......', soup.find('a', string='Elsie'))
 
+
+def css_selectors(soup :BeautifulSoup) -> None:
+    # css selectors can be used inside the select() method to find elements in the dom.
+
+    header_print('Using css selectors with .select()')
+    print('slector ........... result')
+
+    # Select tag
+    for title in soup.select('title'):  # .select() always returns a list
+        print('title ............', title)
+    # select nested tag
+    for anchor in soup.select('body p a'):
+        print('body p a .........', anchor)
+    # select class
+    for sister in soup.select('.sister'):
+        print('.sister ..........', sister)
+    # select id
+    print('#title-id ........', soup.select('#title-id'))
+
 if __name__ == "__main__":
     clear_terminal()
     # The docs reccomend using lxml (third party) over html.parser (built in) because it is faster 
@@ -89,3 +108,4 @@ if __name__ == "__main__":
     tag_object(soup)
     searching_filters(soup)
     find_method_arguments(soup)
+    css_selectors(soup)
