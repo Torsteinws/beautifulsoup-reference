@@ -61,6 +61,23 @@ def searching_filters(soup :BeautifulSoup) -> None:
     elsie = soup.find_all(anchor_contains_elsie)
     print(elsie)
     
+def find_method_arguments(soup :BeautifulSoup) -> None:
+
+    # Filter on tag attributes:
+    header_print('Attributes keyword')
+    # id attributes
+    print('id = link1 ..............', soup.find(id='link1'))
+    # class attributes
+    for sister in soup.find_all(class_ = 'sister'):
+        print('class_ = sister .........' ,sister)
+    # has charset attribute
+    print('charset = True ..........' ,soup.find_all(charset=True))
+
+    # Search the content of by using the string keyword
+    header_print('String keyword')
+    print('string = Elsie ............', soup.find(string='Elsie'))
+    print('(string = Elsie).parent ...', soup.find(string='Elsie').parent)
+    print('"a", string = Elsie .......', soup.find('a', string='Elsie'))
 
 if __name__ == "__main__":
     clear_terminal()
@@ -71,4 +88,4 @@ if __name__ == "__main__":
     common_props(soup)
     tag_object(soup)
     searching_filters(soup)
-
+    find_method_arguments(soup)
