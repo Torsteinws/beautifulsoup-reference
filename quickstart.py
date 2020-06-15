@@ -104,8 +104,8 @@ if __name__ == "__main__":
     with open('./index.html') as markup:
         soup = BeautifulSoup(markup, 'lxml')
 
-    common_props(soup)
-    tag_object(soup)
-    searching_filters(soup)
-    find_method_arguments(soup)
+    # common_props(soup)
+    # tag_object(soup)
+    # searching_filters(soup)
+    # find_method_arguments(soup)
     css_selectors(soup)
